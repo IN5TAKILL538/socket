@@ -34,9 +34,15 @@ io.on('connection', (socket) => {
   socket.emit('update-last-turn', lastCalledTurn);
 
   // Cuando un cliente inicia sesión, se genera un turno
-  socket.on('new-turn', () => {
+  socket.on('new-turn', (callback) => {
     const newTurn = generateTurn();
     queue.push(newTurn);
+    
+    // Verificar si callback es una función antes de llamarla
+    if (typeof callback === 'function') {
+      callback({ turnNumber: newTurn });
+    }
+    
     io.emit('update-queue', queue);
   });
 
