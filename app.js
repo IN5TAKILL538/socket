@@ -72,8 +72,8 @@ io.on('connection', (socket) => {
 app.use(express.static('public'));
 
 // Opcional: Ruta para manejar todas las solicitudes y devolver index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
 
