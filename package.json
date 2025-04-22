@@ -2,7 +2,8 @@
   "name": "08-websocket-server",
   "version": "1.0.0",
   "description": "Un servidor de Websockets usando Node, Express y Socket.io",
-  "main": "index.js",
+  "main": "app.js",
+  
   "scripts": {
     "start": "node app.js"
   },
